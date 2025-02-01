@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdóname, Amor 💔</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        .osito {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #siBtn {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Me perdonas? 🥺</h1>
+        <img src="oso-llorando.gif" alt="Osito llorando" class="osito" id="osito">
+        
+        <div class="buttons">
+            <button id="siBtn">Sí ❤️</button>
+            <button id="noBtn">No 😢</button>
+        </div>
+    </div>
+
+    <script>
+        const siBtn = document.getElementById('siBtn');
+        const noBtn = document.getElementById('noBtn');
+        const osito = document.getElementById('osito');
+        const titulo = document.querySelector('h1');
+
+        let mensajesNo = ["¿Segura?", "¿100% segura?", "¿En serio?", "¿No queres pensarlo?", "decime que si 😢", "dale por favor🥺"];
+        let contadorNo = 0;
+
+        noBtn.addEventListener('click', () => {
+            if (contadorNo < mensajesNo.length) {
+                titulo.textContent = mensajesNo[contadorNo];
+                contadorNo++;
+            } else {
+                titulo.textContent = "No me hagas esto... 😭";
+            }
+
+            siBtn.style.fontSize = `${parseInt(window.getComputedStyle(siBtn).fontSize) + 5}px`;
+        });
+
+        siBtn.addEventListener('click', () => {
+            titulo.textContent = "¡Yo sabía!!! TE AMOOOO BB ❤️";
+            osito.src = "ositos-abrazando.gif";
+            siBtn.style.display = "none";
+            noBtn.style.display = "none";
+        });
+    </script>
+</body>
+</html>
